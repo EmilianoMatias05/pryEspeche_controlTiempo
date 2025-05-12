@@ -13,6 +13,7 @@ namespace pryEspeche_controlTiempo
     public partial class frmInicioSesion : Form
     {
         public bool timerActivo = false;
+        private TimeSpan tiempoTranscurrido;
         public frmInicioSesion()
         {
             InitializeComponent();
@@ -27,21 +28,26 @@ namespace pryEspeche_controlTiempo
         {
             timer1.Interval = 1000; // 1 segundo
             timer1.Start();
+            tiempoTranscurrido = TimeSpan.Zero;
+            btnTiempo.BackColor = Color.Green;
         }
 
         private void btnTiempo_Click(object sender, EventArgs e)
         {
             if (!timerActivo)
             {
+                
                 timer1.Start();
                 timerActivo = true;
                 btnTiempo.Text = "Detener Timer";
+                btnTiempo.BackColor = Color.Red;
             }
             else
             {
                 timer1.Stop();
                 timerActivo = false;
                 btnTiempo.Text = "Iniciar Timer";
+                btnTiempo.BackColor = Color.Green;
             }
         }
 
@@ -52,8 +58,8 @@ namespace pryEspeche_controlTiempo
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            string horaActual = DateTime.Now.ToString("HH:mm:ss");
-            toolStripStatusLabel1.Text = "Tiempo en Sesión: " + horaActual;
+            tiempoTranscurrido = tiempoTranscurrido.Add(TimeSpan.FromSeconds(1));
+            tssTiempo.Text = "Tiempo en Sesión: " + tiempoTranscurrido.ToString(@"hh\:mm\:ss");
         }
     }
 }
