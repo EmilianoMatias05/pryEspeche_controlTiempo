@@ -35,8 +35,8 @@
             this.lblCoordenadas = new System.Windows.Forms.Label();
             this.timerTiempoTrabajo = new System.Windows.Forms.Timer(this.components);
             this.panelTrabajo = new System.Windows.Forms.Panel();
-            this.btnAuditar = new System.Windows.Forms.Button();
             this.lstCoordenadas = new System.Windows.Forms.ListBox();
+            this.btnAuditar = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.tToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelTrabajo.SuspendLayout();
@@ -92,8 +92,17 @@
             this.panelTrabajo.Size = new System.Drawing.Size(635, 311);
             this.panelTrabajo.TabIndex = 5;
             this.panelTrabajo.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTrabajo_Paint);
+            this.panelTrabajo.MouseEnter += new System.EventHandler(this.panelTrabajo_MouseEnter);
             this.panelTrabajo.MouseLeave += new System.EventHandler(this.panelTrabajo_MouseLeave);
             this.panelTrabajo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelTrabajo_MouseMove);
+            // 
+            // lstCoordenadas
+            // 
+            this.lstCoordenadas.FormattingEnabled = true;
+            this.lstCoordenadas.Location = new System.Drawing.Point(0, 0);
+            this.lstCoordenadas.Name = "lstCoordenadas";
+            this.lstCoordenadas.Size = new System.Drawing.Size(632, 303);
+            this.lstCoordenadas.TabIndex = 0;
             // 
             // btnAuditar
             // 
@@ -105,14 +114,6 @@
             this.btnAuditar.UseVisualStyleBackColor = true;
             this.btnAuditar.Click += new System.EventHandler(this.btnAuditar_Click);
             // 
-            // lstCoordenadas
-            // 
-            this.lstCoordenadas.FormattingEnabled = true;
-            this.lstCoordenadas.Location = new System.Drawing.Point(0, 0);
-            this.lstCoordenadas.Name = "lstCoordenadas";
-            this.lstCoordenadas.Size = new System.Drawing.Size(632, 303);
-            this.lstCoordenadas.TabIndex = 0;
-            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -122,6 +123,7 @@
             this.menuStrip1.Size = new System.Drawing.Size(757, 24);
             this.menuStrip1.TabIndex = 7;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // tToolStripMenuItem
             // 
