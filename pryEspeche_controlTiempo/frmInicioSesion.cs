@@ -61,5 +61,12 @@ namespace pryEspeche_controlTiempo
             tiempoTranscurrido = tiempoTranscurrido.Add(TimeSpan.FromSeconds(1));
             tssTiempo.Text = "Tiempo en Sesión: " + tiempoTranscurrido.ToString(@"hh\:mm\:ss");
         }
+
+        private void auditoriaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAuditoria auditoria = new frmAuditoria();
+            auditoria.Show();
+            this.Hide();
+        }
     }
 }
